@@ -1,0 +1,20 @@
+insert into tab_article
+(ID,designation,prix_ht,ref_article,taux_tva)
+values
+('1','multi_vibrateur','0.6','ne555','0.2'),
+('2','bouton_poussoir','0.05','SW3002-BL','0.2'),
+('3','afficheur_led_16segments','4.6','PSA08-11EWA', '0.2')
+
+insert into tab_stock
+(ID,id_article,quantite_en_stock,seuil_rea)
+values
+('1', (select ID from tab_article where tab_article.ID=1),'50','20')
+
+insert into tab_commandes
+(ID,ref_commande,id_date,id_paiement,id_article,quantite_article)
+values
+('1','badu2020arr1' ,(select ID from tab_date where tab_date.ID=1),(select ID from tab_payement where tab_payement.ID=1),(select ID from tab_article where tab_article.designation='afficheur_led_16segments'),'1')
+
+insert into tab_factures
+values
+('1','ISEC',' 7 Rue Diderot, 62000 Arras',(select ID from tab_client where tab_client.nom_client='dubois'),(select ID from tab_commandes where tab_commandes.ID=1))
