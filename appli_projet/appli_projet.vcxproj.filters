@@ -32,6 +32,9 @@
     <ClInclude Include="class.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Form2.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp">

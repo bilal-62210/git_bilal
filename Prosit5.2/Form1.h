@@ -3,6 +3,7 @@
 #include "CLserviceImage.h"
 
 
+
 namespace CppCLRWinformsProjekt {
 
 	using namespace System;
