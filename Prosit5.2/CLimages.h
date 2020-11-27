@@ -9,6 +9,6 @@ namespace NS_composants
 	public ref class CLimages
 	{
 	public:
-		System::Drawing::Bitmap^ acquisitionImage(String^);
+		System::Drawing:: Bitmap^ acquisitionImage(String^);
 	};
 }
