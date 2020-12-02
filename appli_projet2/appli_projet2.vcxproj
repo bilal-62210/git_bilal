@@ -29,7 +29,11 @@
     <ClCompile Include="class.cpp" />
     <ClCompile Include="CppCLR_WinformsProjekt.cpp" />
     <ClCompile Include="Form1.cpp" />
-    <ClCompile Include="Form2.cpp" />
+    <ClCompile Include="ajouterperso.cpp" />
+    <ClCompile Include="ajouterclient.cpp" />
+    <ClCompile Include="ajoutercommande.cpp" />
+    <ClCompile Include="facture.cpp" />
+    <ClCompile Include="Form6.cpp" />
     <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -37,7 +41,19 @@
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Form2.h">
+    <ClInclude Include="ajouterperso.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ajouterclient.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ajoutercommande.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="facture.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Form6.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="pch.h" />
@@ -45,6 +61,21 @@
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ajouterperso.resx">
+      <DependentUpon>ajouterperso.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ajouterclient.resx">
+      <DependentUpon>ajouterclient.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ajoutercommande.resx">
+      <DependentUpon>ajoutercommande.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="facture.resx">
+      <DependentUpon>facture.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form6.resx">
+      <DependentUpon>Form6.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup Label="Globals">

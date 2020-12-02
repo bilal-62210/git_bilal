@@ -2,7 +2,19 @@
 #pragma once
 
 #include "iostream"
+#include "ajouterclient.h"
 using namespace std;
+using namespace System;
+using namespace System::ComponentModel;
+using namespace System::Collections;
+using namespace System::Windows::Forms;
+using namespace System::Data;
+using namespace System::Drawing;
+using namespace System::IO;
+using namespace System::Data::SqlClient;
+using namespace System::Media;
+using namespace System::Threading::Tasks;
+using namespace System::Collections::Generic;
 
 class appli
 {
@@ -16,13 +28,8 @@ public:
 };
 
 class personnel : appli
+
 {
-private:
-    string nom;
-    string prenom;
-#define __DATE__ date;
-    string superieurh;
-    string adresse;
 
 public:
     virtual void creer(void);
@@ -32,16 +39,9 @@ public:
 
 };
 
-class client : appli
+ class client : appli
 {
-protected:
-    string adresse_livraison;
-    string adresse_facturation;
-    int numero_client;
-    string nom;
-    string prenom;
-#define __DATE__ date;
-    float remise;
+
 public:
     virtual void creer(void);
     virtual void modifier(void);
@@ -53,19 +53,6 @@ public:
 
 class commande : appli
 {
-protected:
-    string reference;
-#define __DATE__ date_livraison;
-#define __DATE__ date_emission;
-#define __DATE__ date_paiement;
-    string moyen_paiement;
-    int solde_reglement;
-    int reference_article;
-    string nom_article;
-    int quantite;
-    float montant_ht;
-    float montant_tva;
-    float montant_ttc;
 
 public:
     virtual void creer(void);
@@ -77,10 +64,6 @@ public:
 
 class facture : commande, client
 {
-private:
-    string nom_societe;
-    string adresse_societe;
-    int code_client;
 
 public:
     void envoi_facture(void);
@@ -89,14 +72,6 @@ public:
 class stock : appli
 
 {
-private:
-    float prix_ht;
-    int reference_article_stock;
-    string designation;
-    int quantite;
-    int seuil_reaprovisionnement;
-    float taux_tva;
-
 public:
     virtual void creer(void);
     virtual void modifier(void);

@@ -1,6 +1,9 @@
 #pragma once
 
-#include "Form2.h"
+#include "ajouterperso.h"
+#include "ajouterclient.h"
+#include "ajoutercommande.h"
+#include "facture.h"
 
 namespace CppCLRWinformsProjekt {
 
@@ -318,14 +321,14 @@ namespace CppCLRWinformsProjekt {
 		else if ((this->rdb_ajouter->Checked == true)&&(this->rdb_client->Checked == true))
 		{
 			this->Hide();
-			Form2^ Form = gcnew Form2();
+			Form3^ Form = gcnew Form3();
 			Form->ShowDialog();
 			this->Show();
 		}
 		else if ((this->rdb_ajouter->Checked == true)&&(this->rdb_commande->Checked == true))
 		{
 			this->Hide();
-			Form2^ Form = gcnew Form2();
+			Form4^ Form = gcnew Form4();
 			Form->ShowDialog();
 			this->Show();
 		}
