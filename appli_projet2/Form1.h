@@ -4,6 +4,8 @@
 #include "ajouterclient.h"
 #include "ajoutercommande.h"
 #include "facture.h"
+#include "ajoutercatalogue.h"
+#include "supprimerperso.h"
 
 namespace CppCLRWinformsProjekt {
 
@@ -335,7 +337,7 @@ namespace CppCLRWinformsProjekt {
 		else if ((this->rdb_ajouter->Checked == true)&&(this->rdb_catalogue->Checked == true))
 		{
 			this->Hide();
-			Form2^ Form = gcnew Form2();
+			Form6^ Form = gcnew Form6();
 			Form->ShowDialog();
 			this->Show();
 		}
@@ -343,7 +345,7 @@ namespace CppCLRWinformsProjekt {
 		else if ((this->rdb_supprimer->Checked == true)&&(this->rdb_personnel->Checked == true))
 		{
 			this->Hide();
-			Form2^ Form = gcnew Form2();
+			Form7^ Form = gcnew Form7();
 			Form->ShowDialog();
 			this->Show();
 		}

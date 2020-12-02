@@ -33,7 +33,8 @@
     <ClCompile Include="ajouterclient.cpp" />
     <ClCompile Include="ajoutercommande.cpp" />
     <ClCompile Include="facture.cpp" />
-    <ClCompile Include="Form6.cpp" />
+    <ClCompile Include="ajoutercatalogue.cpp" />
+    <ClCompile Include="supprimerperso.cpp" />
     <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -53,7 +54,10 @@
     <ClInclude Include="facture.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Form6.h">
+    <ClInclude Include="ajoutercatalogue.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="supprimerperso.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="pch.h" />
@@ -74,8 +78,11 @@
     <EmbeddedResource Include="facture.resx">
       <DependentUpon>facture.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form6.resx">
-      <DependentUpon>Form6.h</DependentUpon>
+    <EmbeddedResource Include="ajoutercatalogue.resx">
+      <DependentUpon>ajoutercatalogue.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="supprimerperso.resx">
+      <DependentUpon>supprimerperso.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup Label="Globals">
