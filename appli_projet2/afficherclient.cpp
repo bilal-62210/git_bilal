@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Form13.h"
+#include "afficherclient.h"
 
 
 using namespace System;
@@ -7,11 +7,11 @@ using namespace System::Windows::Forms;
 
 
 [STAThreadAttribute]
-int __clrcall WinMain12(array<String^>^ args)
+int __clrcall WinMain15(array<String^>^ args)
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	CppCLRWinformsProjekt::Form13 monFormulaire;
+	CppCLRWinformsProjekt::Form16 monFormulaire;
 	Application::Run(% monFormulaire);
 	return 0;
 }

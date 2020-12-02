@@ -26,7 +26,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="class.cpp" />
     <ClCompile Include="CppCLR_WinformsProjekt.cpp" />
     <ClCompile Include="Form1.cpp" />
     <ClCompile Include="ajouterperso.cpp" />
@@ -34,7 +33,11 @@
     <ClCompile Include="ajoutercommande.cpp" />
     <ClCompile Include="facture.cpp" />
     <ClCompile Include="ajoutercatalogue.cpp" />
-    <ClCompile Include="Form13.cpp" />
+    <ClCompile Include="afficherperso.cpp" />
+    <ClCompile Include="afficherclient.cpp" />
+    <ClCompile Include="affichercommande.cpp" />
+    <ClCompile Include="modifiercatalogue.cpp" />
+    <ClCompile Include="modifiercommande.cpp" />
     <ClCompile Include="modifierclient.cpp" />
     <ClCompile Include="supprimercommande.cpp" />
     <ClCompile Include="supprimercatalogue.cpp" />
@@ -63,7 +66,19 @@
     <ClInclude Include="ajoutercatalogue.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Form13.h">
+    <ClInclude Include="afficherperso.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="afficherclient.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="affichercommande.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="modifiercatalogue.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="modifiercommande.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="modifierclient.h">
@@ -105,8 +120,17 @@
     <EmbeddedResource Include="ajoutercatalogue.resx">
       <DependentUpon>ajoutercatalogue.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form13.resx">
-      <DependentUpon>Form13.h</DependentUpon>
+    <EmbeddedResource Include="afficherperso.resx">
+      <DependentUpon>afficherperso.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="affichercommande.resx">
+      <DependentUpon>affichercommande.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modifiercatalogue.resx">
+      <DependentUpon>modifiercatalogue.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modifiercommande.resx">
+      <DependentUpon>modifiercommande.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modifierclient.resx">
       <DependentUpon>modifierclient.h</DependentUpon>

@@ -202,13 +202,16 @@ namespace  CppCLRWinformsProjekt {
 		String^ o = "delete from tab_date where ID = '" + txt_id->Text->ToString() + "'";
 		String^ a = "delete from tab_payement where ID = '" + txt_id->Text->ToString() + "'";
 		String^ b = "delete from tab_commandes where ref_commande = '" + txt_ref->Text->ToString() + "'";
+		String^ c = "delete from tab_factures where ID ='" + txt_id->Text->ToString() + "'";
 		SqlCommand^ cmd = gcnew SqlCommand(o, appli);
 		SqlCommand^ cmd1 = gcnew SqlCommand(a, appli);
 		SqlCommand^ cmd2 = gcnew SqlCommand(b, appli);
+		SqlCommand^ cmd3 = gcnew SqlCommand(c, appli);
 
 		cmd->ExecuteNonQuery();
 		cmd1->ExecuteNonQuery();
 		cmd2->ExecuteNonQuery();
+		cmd3->ExecuteNonQuery();
 		MessageBox::Show("Données supprimé de la BDD");
 	}
 	};

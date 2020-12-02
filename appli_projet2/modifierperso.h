@@ -452,7 +452,6 @@ private: System::Void btn_valider_Click(System::Object^ sender, System::EventArg
 		cmd5->ExecuteNonQuery();
 	}
 	MessageBox::Show("Données modifiées");
-	this->Close();
 
 }
 };
