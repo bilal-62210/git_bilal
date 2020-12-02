@@ -6,6 +6,11 @@
 #include "facture.h"
 #include "ajoutercatalogue.h"
 #include "supprimerperso.h"
+#include "modifierperso.h"
+#include "supprimerclient.h"
+#include "supprimercatalogue.h"
+#include "supprimercommande.h"
+#include "modifierclient.h"
 
 namespace CppCLRWinformsProjekt {
 
@@ -352,21 +357,21 @@ namespace CppCLRWinformsProjekt {
 		else if ((this->rdb_supprimer->Checked == true)&&(this->rdb_client->Checked == true))
 		{
 			this->Hide();
-			Form2^ Form = gcnew Form2();
+			Form8^ Form = gcnew Form8();
 			Form->ShowDialog();
 			this->Show();
 		}
 		else if ((this->rdb_supprimer->Checked == true)&&(this->rdb_catalogue->Checked == true))
 		{
 			this->Hide();
-			Form2^ Form = gcnew Form2();
+			Form10^ Form = gcnew Form10();
 			Form->ShowDialog();
 			this->Show();
 		}
 		else if ((this->rdb_supprimer->Checked == true)&&(this->rdb_commande->Checked == true))
 		{
 			this->Hide();
-			Form2^ Form = gcnew Form2();
+			Form9^ Form = gcnew Form9();
 			Form->ShowDialog();
 			this->Show();
 		}
@@ -374,14 +379,14 @@ namespace CppCLRWinformsProjekt {
 		else if ((this->rdb_modifier->Checked == true)&&(this->rdb_personnel->Checked == true))
 		{
 			this->Hide();
-			Form2^ Form = gcnew Form2();
+			Form11^ Form = gcnew Form11();
 			Form->ShowDialog();
 			this->Show();
 		}
 		else if ((this->rdb_modifier->Checked == true)&&(this->rdb_client->Checked == true))
 		{
 			this->Hide();
-			Form2^ Form = gcnew Form2();
+			Form12^ Form = gcnew Form12();
 			Form->ShowDialog();
 			this->Show();
 		}

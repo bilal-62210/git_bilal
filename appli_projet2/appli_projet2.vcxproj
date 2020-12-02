@@ -34,7 +34,12 @@
     <ClCompile Include="ajoutercommande.cpp" />
     <ClCompile Include="facture.cpp" />
     <ClCompile Include="ajoutercatalogue.cpp" />
-    <ClCompile Include="Form11.cpp" />
+    <ClCompile Include="Form13.cpp" />
+    <ClCompile Include="modifierclient.cpp" />
+    <ClCompile Include="supprimercommande.cpp" />
+    <ClCompile Include="supprimercatalogue.cpp" />
+    <ClCompile Include="supprimerclient.cpp" />
+    <ClCompile Include="modifierperso.cpp" />
     <ClCompile Include="supprimerperso.cpp" />
     <ClCompile Include="pch.cpp" />
   </ItemGroup>
@@ -58,7 +63,22 @@
     <ClInclude Include="ajoutercatalogue.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Form11.h">
+    <ClInclude Include="Form13.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="modifierclient.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="supprimercommande.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="supprimercatalogue.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="supprimerclient.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="modifierperso.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="supprimerperso.h">
@@ -84,6 +104,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ajoutercatalogue.resx">
       <DependentUpon>ajoutercatalogue.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form13.resx">
+      <DependentUpon>Form13.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modifierclient.resx">
+      <DependentUpon>modifierclient.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="supprimercommande.resx">
+      <DependentUpon>supprimercommande.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="supprimercatalogue.resx">
+      <DependentUpon>supprimercatalogue.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="supprimerclient.resx">
+      <DependentUpon>supprimerclient.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modifierperso.resx">
+      <DependentUpon>modifierperso.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="supprimerperso.resx">
       <DependentUpon>supprimerperso.h</DependentUpon>
