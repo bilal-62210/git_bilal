@@ -1,5 +1,6 @@
 #pragma once
 #include "facture.h"
+#include "affichercommande.h"
 
 namespace CppCLRWinformsProjekt {
 
@@ -57,7 +58,7 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Label^ label_pay;
 	private: System::Windows::Forms::Label^ label_ht;
 	private: System::Windows::Forms::Label^ label_tva;
-	private: System::Windows::Forms::Label^ label_quantite;
+
 
 
 
@@ -82,7 +83,7 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::TextBox^ txt_tva;
 	private: System::Windows::Forms::TextBox^ txt_ttc;
 	private: System::Windows::Forms::TextBox^ txt_article;
-	private: System::Windows::Forms::TextBox^ txt_quantite;
+
 	private: System::Windows::Forms::Button^ btn_valider;
 	public: String^ ip = "Data Source=DESKTOP-K7482RK;Initial Catalog=appli;Integrated Security=True;MultipleActiveResultSets=False;Connect Timeout=30;TrustServerCertificate=False;Application Name=Microsoft SQL Server Data Tools, SQL Server Object Explorer";
 
@@ -119,6 +120,7 @@ namespace CppCLRWinformsProjekt {
 
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label_prenom;
+	private: System::Windows::Forms::Button^ button1;
 
 
 	private: int index;
@@ -139,7 +141,6 @@ namespace CppCLRWinformsProjekt {
 			this->label_pay = (gcnew System::Windows::Forms::Label());
 			this->label_ht = (gcnew System::Windows::Forms::Label());
 			this->label_tva = (gcnew System::Windows::Forms::Label());
-			this->label_quantite = (gcnew System::Windows::Forms::Label());
 			this->label_article = (gcnew System::Windows::Forms::Label());
 			this->label_regl = (gcnew System::Windows::Forms::Label());
 			this->label_ttc = (gcnew System::Windows::Forms::Label());
@@ -154,7 +155,6 @@ namespace CppCLRWinformsProjekt {
 			this->txt_tva = (gcnew System::Windows::Forms::TextBox());
 			this->txt_ttc = (gcnew System::Windows::Forms::TextBox());
 			this->txt_article = (gcnew System::Windows::Forms::TextBox());
-			this->txt_quantite = (gcnew System::Windows::Forms::TextBox());
 			this->btn_valider = (gcnew System::Windows::Forms::Button());
 			this->btn_facture = (gcnew System::Windows::Forms::Button());
 			this->label_client = (gcnew System::Windows::Forms::Label());
@@ -172,6 +172,7 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox_client = (gcnew System::Windows::Forms::GroupBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label_prenom = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->groupBox_ID->SuspendLayout();
 			this->groupBox_date->SuspendLayout();
 			this->groupBox_pay->SuspendLayout();
@@ -271,16 +272,6 @@ namespace CppCLRWinformsProjekt {
 			this->label_tva->TabIndex = 19;
 			this->label_tva->Text = L"montant_tva";
 			this->label_tva->Click += gcnew System::EventHandler(this, &Form4::label_tva_Click);
-			// 
-			// label_quantite
-			// 
-			this->label_quantite->AutoSize = true;
-			this->label_quantite->Location = System::Drawing::Point(47, 210);
-			this->label_quantite->Name = L"label_quantite";
-			this->label_quantite->Size = System::Drawing::Size(140, 17);
-			this->label_quantite->TabIndex = 20;
-			this->label_quantite->Text = L"quantite_article_total";
-			this->label_quantite->Click += gcnew System::EventHandler(this, &Form4::label_quantite_Click);
 			// 
 			// label_article
 			// 
@@ -400,14 +391,6 @@ namespace CppCLRWinformsProjekt {
 			this->txt_article->TabIndex = 34;
 			this->txt_article->TextChanged += gcnew System::EventHandler(this, &Form4::txt_article_TextChanged);
 			// 
-			// txt_quantite
-			// 
-			this->txt_quantite->Location = System::Drawing::Point(228, 207);
-			this->txt_quantite->Name = L"txt_quantite";
-			this->txt_quantite->Size = System::Drawing::Size(121, 22);
-			this->txt_quantite->TabIndex = 35;
-			this->txt_quantite->TextChanged += gcnew System::EventHandler(this, &Form4::txt_quantite_TextChanged);
-			// 
 			// btn_valider
 			// 
 			this->btn_valider->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -508,11 +491,9 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox_article->Controls->Add(this->label_article2);
 			this->groupBox_article->Controls->Add(this->label_article);
 			this->groupBox_article->Controls->Add(this->txt_article);
-			this->groupBox_article->Controls->Add(this->txt_quantite);
-			this->groupBox_article->Controls->Add(this->label_quantite);
 			this->groupBox_article->Location = System::Drawing::Point(675, 72);
 			this->groupBox_article->Name = L"groupBox_article";
-			this->groupBox_article->Size = System::Drawing::Size(416, 261);
+			this->groupBox_article->Size = System::Drawing::Size(416, 210);
 			this->groupBox_article->TabIndex = 43;
 			this->groupBox_article->TabStop = false;
 			this->groupBox_article->Text = L"Article";
@@ -604,11 +585,22 @@ namespace CppCLRWinformsProjekt {
 			this->label_prenom->Text = L"prenom_client";
 			this->label_prenom->Click += gcnew System::EventHandler(this, &Form4::label_prenom_Click);
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(903, 15);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(151, 25);
+			this->button1->TabIndex = 45;
+			this->button1->Text = L"Affichage";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form4::button1_Click);
+			// 
 			// Form4
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1338, 514);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox_client);
 			this->Controls->Add(this->groupBox_article);
 			this->Controls->Add(this->groupBox_pay);
@@ -708,7 +700,7 @@ private: System::Void btn_valider_Click(System::Object^ sender, System::EventArg
 	appli->Open();
 	String^ o = "insert into tab_date(ID,date_livraison,date_emission,date_payement)values('" + txt_id->Text->ToString() + "','" + txt_livraison->Text->ToString() + "','" + txt_emission->Text->ToString() + "','" + txt_payement->Text->ToString() + "')";
 	String^ z = "insert into tab_payement(ID,moyen_payement,solde_reglement,montant_ht,montant_tva,montant_ttc,id_date)values('" + txt_id->Text->ToString() + "','" + txt_pay->Text->ToString() + "','" + txt_regl->Text->ToString() + "','" + txt_ht->Text->ToString() + "','" + txt_tva->Text->ToString() + "','" + txt_ttc->Text->ToString() + "','" + txt_id->Text->ToString() + "')";
-	String^ q = "insert into tab_commandes(ID,ref_commande,quantite_article,id_date,id_paiement,id_client,quantite_bouton_poussoir,quantite_multi_vibrateur,quantite_afficheur_led,resistance)values('" + txt_id->Text->ToString() + "','" + txt_ref->Text->ToString() + "','" + txt_quantite->Text->ToString() + "','" + txt_id->Text->ToString() + "','" + txt_id->Text->ToString() + "',(select ID from tab_client where tab_client.nom_client='" + txt_client->Text->ToString() + "'),'" + txt_article->Text->ToString() + "','" + txt_article2->Text->ToString() + "','" + txt_article3->Text->ToString() + "','" + txt_article4->Text->ToString() + "')";
+	String^ q = "insert into tab_commandes(ID,ref_commande,id_date,id_paiement,id_client,quantite_bouton_poussoir,quantite_multi_vibrateur,quantite_afficheur_led,quantite_resistance)values('" + txt_id->Text->ToString() + "','" + txt_ref->Text->ToString() + "','" + txt_id->Text->ToString() + "','" + txt_id->Text->ToString() + "',(select ID from tab_client where tab_client.nom_client='" + txt_client->Text->ToString() + "'),'" + txt_article->Text->ToString() + "','" + txt_article2->Text->ToString() + "','" + txt_article3->Text->ToString() + "','" + txt_article4->Text->ToString() + "')";
 	String^ b = "insert into tab_factures(ID,nom_societe,adresse_sociale,id_commandes,id_client)values('" + txt_id->Text->ToString() + "','THAB','	7_rue_diderot_arras','" + txt_id->Text->ToString() + "',(select ID from tab_client where tab_client.nom_client='" + txt_client->Text->ToString() + "'))";
 		
 
@@ -754,6 +746,13 @@ private: System::Void groupBox_pay_Enter(System::Object^ sender, System::EventAr
 private: System::Void groupBox_article_Enter(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void groupBox_client_Enter(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	this->Hide();
+	Form17^ Form = gcnew Form17();
+	Form->ShowDialog();
+	this->Show();
 }
 };
 }

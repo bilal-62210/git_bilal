@@ -1,5 +1,5 @@
 #pragma once
-
+#include "affichercommande.h"
 namespace CppCLRWinformsProjekt {
 
 	using namespace System;
@@ -67,6 +67,7 @@ namespace CppCLRWinformsProjekt {
 
 	private: System::Windows::Forms::TextBox^ txt_client;
 	private: System::Windows::Forms::Label^ label_client;
+
 
 
 
@@ -516,6 +517,13 @@ private: System::Void textBox_article3_TextChanged(System::Object^ sender, Syste
 private: System::Void label_article4_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void textBox_article4_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	this->Hide();
+	Form17^ Form = gcnew Form17();
+	Form->ShowDialog();
+	this->Show();
 }
 };
 }

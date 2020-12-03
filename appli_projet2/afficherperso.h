@@ -1,5 +1,5 @@
 #pragma once
-
+#include "afficherperso.h"
 namespace CppCLRWinformsProjekt {
 
 	using namespace System;
@@ -51,6 +51,8 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Label^ label_prenom;
 	private: System::Windows::Forms::Label^ label_nom;
 	public: String^ ip = "Data Source=DESKTOP-K7482RK;Initial Catalog=appli;Integrated Security=True;MultipleActiveResultSets=False;Connect Timeout=30;TrustServerCertificate=False;Application Name=Microsoft SQL Server Data Tools, SQL Server Object Explorer";
+
+	public:
 
 	private:
 		/// <summary>
@@ -254,6 +256,13 @@ private: System::Void textBox_prenom_TextChanged(System::Object^ sender, System:
 private: System::Void checkBox_complet_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void personnel_view_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	this->Hide();
+	Form15^ Form = gcnew Form15();
+	Form->ShowDialog();
+	this->Show();
 }
 };
 }

@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "iostream"
+#include "afficherperso.h"
 
 namespace  CppCLRWinformsProjekt {
 
@@ -52,6 +53,7 @@ namespace  CppCLRWinformsProjekt {
 
 
 	private: System::Windows::Forms::TextBox^ txtsuperieur;
+	private: System::Windows::Forms::Button^ button2;
 
 	//public: enum ConnectionState;
 
@@ -97,6 +99,7 @@ namespace  CppCLRWinformsProjekt {
 			   this->txtdate = (gcnew System::Windows::Forms::TextBox());
 			   this->txtadresse = (gcnew System::Windows::Forms::TextBox());
 			   this->txtsuperieur = (gcnew System::Windows::Forms::TextBox());
+			   this->button2 = (gcnew System::Windows::Forms::Button());
 			   this->SuspendLayout();
 			   // 
 			   // btn_exit
@@ -230,11 +233,22 @@ namespace  CppCLRWinformsProjekt {
 			   this->txtsuperieur->TabIndex = 24;
 			   this->txtsuperieur->TextChanged += gcnew System::EventHandler(this, &Form2::txtsuperieur_TextChanged);
 			   // 
+			   // button2
+			   // 
+			   this->button2->Location = System::Drawing::Point(1043, 16);
+			   this->button2->Name = L"button2";
+			   this->button2->Size = System::Drawing::Size(121, 32);
+			   this->button2->TabIndex = 25;
+			   this->button2->Text = L"Affichage";
+			   this->button2->UseVisualStyleBackColor = true;
+			   this->button2->Click += gcnew System::EventHandler(this, &Form2::button2_Click);
+			   // 
 			   // Form2
 			   // 
 			   this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			   this->ClientSize = System::Drawing::Size(1200, 500);
+			   this->Controls->Add(this->button2);
 			   this->Controls->Add(this->txtsuperieur);
 			   this->Controls->Add(this->txtadresse);
 			   this->Controls->Add(this->txtdate);
@@ -303,6 +317,13 @@ private: System::Void txtnom_TextChanged(System::Object^ sender, System::EventAr
 private: System::Void txtprenom_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void txtid_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	this->Hide();
+	Form15^ Form = gcnew Form15();
+	Form->ShowDialog();
+	this->Show();
 }
 };
 	

@@ -1,5 +1,5 @@
 #pragma once
-
+#include "affichercatalogue.h"
 namespace CppCLRWinformsProjekt {
 
 	using namespace System;
@@ -59,6 +59,7 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::Label^ label_tva;
 	private: System::Windows::Forms::Label^ label_rea;
 	private: System::Windows::Forms::Label^ label_stock;
+	private: System::Windows::Forms::Button^ button1;
 
 
 
@@ -96,6 +97,7 @@ namespace CppCLRWinformsProjekt {
 			this->label_rea = (gcnew System::Windows::Forms::Label());
 			this->label_stock = (gcnew System::Windows::Forms::Label());
 			this->btn_valider = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// btn_exit
@@ -249,11 +251,22 @@ namespace CppCLRWinformsProjekt {
 			this->btn_valider->UseVisualStyleBackColor = true;
 			this->btn_valider->Click += gcnew System::EventHandler(this, &Form6::btn_valider_Click);
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(874, 15);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(142, 30);
+			this->button1->TabIndex = 37;
+			this->button1->Text = L"Affichage";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form6::button1_Click);
+			// 
 			// Form6
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1057, 576);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->btn_valider);
 			this->Controls->Add(this->label_stock);
 			this->Controls->Add(this->label_rea);
@@ -331,7 +344,14 @@ private: System::Void btn_valider_Click(System::Object^ sender, System::EventArg
 	cmd->ExecuteNonQuery();
 	cmd1->ExecuteNonQuery();
 	MessageBox::Show("Données inseré dans la BDD");
-	this->Close();
+	
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	this->Hide();
+	Form18^ Form = gcnew Form18();
+	Form->ShowDialog();
+	this->Show();
 }
 };
 }

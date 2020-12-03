@@ -48,10 +48,10 @@ namespace  CppCLRWinformsProjekt {
 	private: System::Windows::Forms::CheckBox^ checkBox_rea;
 	private: System::Windows::Forms::CheckBox^ checkBox_total_client;
 	private: System::Windows::Forms::CheckBox^ checkBox_plus_vendus;
-	private: System::Windows::Forms::CheckBox^ checkBox_moins_vendu;
+
 	private: System::Windows::Forms::CheckBox^ checkBox_val_com_stock;
 	private: System::Windows::Forms::CheckBox^ checkBox_val_ac_stock;
-	private: System::Windows::Forms::CheckBox^ checkBox_viriation;
+
 	private: System::Windows::Forms::DataGridView^ affichage_view;
 	private: System::Windows::Forms::TextBox^ textBox_mois;
 	private: System::Windows::Forms::TextBox^ txt_id_client;
@@ -77,10 +77,8 @@ namespace  CppCLRWinformsProjekt {
 			this->checkBox_rea = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox_total_client = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox_plus_vendus = (gcnew System::Windows::Forms::CheckBox());
-			this->checkBox_moins_vendu = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox_val_com_stock = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox_val_ac_stock = (gcnew System::Windows::Forms::CheckBox());
-			this->checkBox_viriation = (gcnew System::Windows::Forms::CheckBox());
 			this->affichage_view = (gcnew System::Windows::Forms::DataGridView());
 			this->textBox_mois = (gcnew System::Windows::Forms::TextBox());
 			this->txt_id_client = (gcnew System::Windows::Forms::TextBox());
@@ -159,27 +157,16 @@ namespace  CppCLRWinformsProjekt {
 			this->checkBox_plus_vendus->AutoSize = true;
 			this->checkBox_plus_vendus->Location = System::Drawing::Point(31, 327);
 			this->checkBox_plus_vendus->Name = L"checkBox_plus_vendus";
-			this->checkBox_plus_vendus->Size = System::Drawing::Size(157, 21);
+			this->checkBox_plus_vendus->Size = System::Drawing::Size(177, 21);
 			this->checkBox_plus_vendus->TabIndex = 41;
-			this->checkBox_plus_vendus->Text = L"10 articles + vendus";
+			this->checkBox_plus_vendus->Text = L"Résumé ventes articles";
 			this->checkBox_plus_vendus->UseVisualStyleBackColor = true;
 			this->checkBox_plus_vendus->CheckedChanged += gcnew System::EventHandler(this, &Form19::checkBox_plus_vendus_CheckedChanged);
-			// 
-			// checkBox_moins_vendu
-			// 
-			this->checkBox_moins_vendu->AutoSize = true;
-			this->checkBox_moins_vendu->Location = System::Drawing::Point(31, 390);
-			this->checkBox_moins_vendu->Name = L"checkBox_moins_vendu";
-			this->checkBox_moins_vendu->Size = System::Drawing::Size(154, 21);
-			this->checkBox_moins_vendu->TabIndex = 42;
-			this->checkBox_moins_vendu->Text = L"10 articles - vendus";
-			this->checkBox_moins_vendu->UseVisualStyleBackColor = true;
-			this->checkBox_moins_vendu->CheckedChanged += gcnew System::EventHandler(this, &Form19::checkBox_moins_vendu_CheckedChanged);
 			// 
 			// checkBox_val_com_stock
 			// 
 			this->checkBox_val_com_stock->AutoSize = true;
-			this->checkBox_val_com_stock->Location = System::Drawing::Point(31, 454);
+			this->checkBox_val_com_stock->Location = System::Drawing::Point(31, 392);
 			this->checkBox_val_com_stock->Name = L"checkBox_val_com_stock";
 			this->checkBox_val_com_stock->Size = System::Drawing::Size(181, 21);
 			this->checkBox_val_com_stock->TabIndex = 43;
@@ -190,24 +177,13 @@ namespace  CppCLRWinformsProjekt {
 			// checkBox_val_ac_stock
 			// 
 			this->checkBox_val_ac_stock->AutoSize = true;
-			this->checkBox_val_ac_stock->Location = System::Drawing::Point(31, 518);
+			this->checkBox_val_ac_stock->Location = System::Drawing::Point(31, 477);
 			this->checkBox_val_ac_stock->Name = L"checkBox_val_ac_stock";
 			this->checkBox_val_ac_stock->Size = System::Drawing::Size(145, 21);
 			this->checkBox_val_ac_stock->TabIndex = 44;
 			this->checkBox_val_ac_stock->Text = L"valeur achat stock";
 			this->checkBox_val_ac_stock->UseVisualStyleBackColor = true;
 			this->checkBox_val_ac_stock->CheckedChanged += gcnew System::EventHandler(this, &Form19::checkBox_val_ac_stock_CheckedChanged);
-			// 
-			// checkBox_viriation
-			// 
-			this->checkBox_viriation->AutoSize = true;
-			this->checkBox_viriation->Location = System::Drawing::Point(31, 580);
-			this->checkBox_viriation->Name = L"checkBox_viriation";
-			this->checkBox_viriation->Size = System::Drawing::Size(153, 21);
-			this->checkBox_viriation->TabIndex = 45;
-			this->checkBox_viriation->Text = L"Simulation variation";
-			this->checkBox_viriation->UseVisualStyleBackColor = true;
-			this->checkBox_viriation->CheckedChanged += gcnew System::EventHandler(this, &Form19::checkBox_viriation_CheckedChanged);
 			// 
 			// affichage_view
 			// 
@@ -244,10 +220,8 @@ namespace  CppCLRWinformsProjekt {
 			this->Controls->Add(this->txt_id_client);
 			this->Controls->Add(this->textBox_mois);
 			this->Controls->Add(this->affichage_view);
-			this->Controls->Add(this->checkBox_viriation);
 			this->Controls->Add(this->checkBox_val_ac_stock);
 			this->Controls->Add(this->checkBox_val_com_stock);
-			this->Controls->Add(this->checkBox_moins_vendu);
 			this->Controls->Add(this->checkBox_plus_vendus);
 			this->Controls->Add(this->checkBox_total_client);
 			this->Controls->Add(this->checkBox_rea);
@@ -318,21 +292,11 @@ namespace  CppCLRWinformsProjekt {
 		{
 			SqlConnection^ appli = gcnew SqlConnection(ip);
 			appli->Open();
-			String^ d = "SELECT top 10[designation], SUM(quantite_article) Quantite FROM tab_commandes INNER JOIN tab_article ON tab_commandes.id_article = tab_article.ID GROUP BY designation ORDER BY Quantite DESC";	
+			String^ d = "SELECT SUM(quantite_bouton_poussoir)as quantite_bouton_poussoir, SUM(quantite_multi_vibrateur) as quantite_multi_vibrateur, SUM(quantite_afficheur_led)as quantite_afficheur_led,SUM(quantite_resistance) as quantite_resistance FROM tab_commandes";	
 			SqlDataAdapter^ sda4 = gcnew SqlDataAdapter(d, appli);
 			DataTable^ dt4 = gcnew DataTable();
 			sda4->Fill(dt4);
 			affichage_view->DataSource = dt4;
-		}
-		if (this->checkBox_moins_vendu->Checked == true)
-		{
-			SqlConnection^ appli = gcnew SqlConnection(ip);
-			appli->Open();
-			String^ e= "SELECT top 10[designation], SUM(quantite_article) Quantite FROM tab_commandes INNER JOIN tab_article ON tab_commandes.id_article = tab_article.ID GROUP BY designation ORDER BY Quantite ASC";
-			SqlDataAdapter^ sda5 = gcnew SqlDataAdapter(e, appli);
-			DataTable^ dt5 = gcnew DataTable();
-			sda5->Fill(dt5);
-			affichage_view->DataSource = dt5;
 		}
 		if (this->checkBox_val_com_stock->Checked == true)
 		{
@@ -348,7 +312,7 @@ namespace  CppCLRWinformsProjekt {
 		{
 			SqlConnection^ appli = gcnew SqlConnection(ip);
 			appli->Open();
-			String^ g = "SELECT SUM((prix_ht + taux_tva)*tab_stock.quantite_en_stock) AS valeur FROM tab_article, tab_stock where tab_article.ID=tab_stock.id_article";
+			String^ g = "SELECT SUM((prix_ht *(1+ taux_tva))*tab_stock.quantite_en_stock) AS valeur FROM tab_article, tab_stock where tab_article.ID=tab_stock.id_article";
 			SqlDataAdapter^ sda7 = gcnew SqlDataAdapter(g, appli);
 			DataTable^ dt7 = gcnew DataTable();
 			sda7->Fill(dt7);

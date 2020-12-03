@@ -80,12 +80,12 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::CheckBox^ checkBox_date_pay;
 	private: System::Windows::Forms::GroupBox^ groupBox_article;
 
-	private: System::Windows::Forms::TextBox^ txt_quantite;
+
 	private: System::Windows::Forms::TextBox^ txt_article4;
 	private: System::Windows::Forms::TextBox^ txt_article3;
 	private: System::Windows::Forms::TextBox^ txt_article2;
 	private: System::Windows::Forms::TextBox^ txt_article1;
-	private: System::Windows::Forms::CheckBox^ checkBox_quantite;
+
 	private: System::Windows::Forms::CheckBox^ checkBox_article4;
 	private: System::Windows::Forms::CheckBox^ checkBox_article3;
 	private: System::Windows::Forms::CheckBox^ checkBox_artcicle2;
@@ -133,12 +133,10 @@ private: System::Windows::Forms::Label^ label_id;
 			this->txt_client = (gcnew System::Windows::Forms::TextBox());
 			this->checkBox_nom_client = (gcnew System::Windows::Forms::CheckBox());
 			this->groupBox_article = (gcnew System::Windows::Forms::GroupBox());
-			this->txt_quantite = (gcnew System::Windows::Forms::TextBox());
 			this->txt_article4 = (gcnew System::Windows::Forms::TextBox());
 			this->txt_article3 = (gcnew System::Windows::Forms::TextBox());
 			this->txt_article2 = (gcnew System::Windows::Forms::TextBox());
 			this->txt_article1 = (gcnew System::Windows::Forms::TextBox());
-			this->checkBox_quantite = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox_article4 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox_article3 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox_artcicle2 = (gcnew System::Windows::Forms::CheckBox());
@@ -289,81 +287,60 @@ private: System::Windows::Forms::Label^ label_id;
 			// 
 			// groupBox_article
 			// 
-			this->groupBox_article->Controls->Add(this->txt_quantite);
 			this->groupBox_article->Controls->Add(this->txt_article4);
 			this->groupBox_article->Controls->Add(this->txt_article3);
 			this->groupBox_article->Controls->Add(this->txt_article2);
 			this->groupBox_article->Controls->Add(this->txt_article1);
-			this->groupBox_article->Controls->Add(this->checkBox_quantite);
 			this->groupBox_article->Controls->Add(this->checkBox_article4);
 			this->groupBox_article->Controls->Add(this->checkBox_article3);
 			this->groupBox_article->Controls->Add(this->checkBox_artcicle2);
 			this->groupBox_article->Controls->Add(this->checkBox_article1);
 			this->groupBox_article->Location = System::Drawing::Point(794, 38);
 			this->groupBox_article->Name = L"groupBox_article";
-			this->groupBox_article->Size = System::Drawing::Size(273, 281);
+			this->groupBox_article->Size = System::Drawing::Size(273, 235);
 			this->groupBox_article->TabIndex = 46;
 			this->groupBox_article->TabStop = false;
 			this->groupBox_article->Text = L"Article";
 			this->groupBox_article->Enter += gcnew System::EventHandler(this, &Form13::groupBox_article_Enter);
 			// 
-			// txt_quantite
-			// 
-			this->txt_quantite->Location = System::Drawing::Point(154, 223);
-			this->txt_quantite->Name = L"txt_quantite";
-			this->txt_quantite->Size = System::Drawing::Size(100, 22);
-			this->txt_quantite->TabIndex = 47;
-			this->txt_quantite->TextChanged += gcnew System::EventHandler(this, &Form13::txt_quantite_TextChanged);
-			// 
 			// txt_article4
 			// 
-			this->txt_article4->Location = System::Drawing::Point(112, 170);
+			this->txt_article4->Location = System::Drawing::Point(208, 170);
 			this->txt_article4->Name = L"txt_article4";
-			this->txt_article4->Size = System::Drawing::Size(142, 22);
+			this->txt_article4->Size = System::Drawing::Size(46, 22);
 			this->txt_article4->TabIndex = 8;
 			this->txt_article4->TextChanged += gcnew System::EventHandler(this, &Form13::txt_article4_TextChanged);
 			// 
 			// txt_article3
 			// 
-			this->txt_article3->Location = System::Drawing::Point(112, 122);
+			this->txt_article3->Location = System::Drawing::Point(208, 122);
 			this->txt_article3->Name = L"txt_article3";
-			this->txt_article3->Size = System::Drawing::Size(142, 22);
+			this->txt_article3->Size = System::Drawing::Size(46, 22);
 			this->txt_article3->TabIndex = 7;
 			this->txt_article3->TextChanged += gcnew System::EventHandler(this, &Form13::txt_article3_TextChanged);
 			// 
 			// txt_article2
 			// 
-			this->txt_article2->Location = System::Drawing::Point(112, 82);
+			this->txt_article2->Location = System::Drawing::Point(208, 82);
 			this->txt_article2->Name = L"txt_article2";
-			this->txt_article2->Size = System::Drawing::Size(142, 22);
+			this->txt_article2->Size = System::Drawing::Size(46, 22);
 			this->txt_article2->TabIndex = 6;
 			this->txt_article2->TextChanged += gcnew System::EventHandler(this, &Form13::txt_article2_TextChanged);
 			// 
 			// txt_article1
 			// 
-			this->txt_article1->Location = System::Drawing::Point(112, 35);
+			this->txt_article1->Location = System::Drawing::Point(208, 35);
 			this->txt_article1->Name = L"txt_article1";
-			this->txt_article1->Size = System::Drawing::Size(142, 22);
+			this->txt_article1->Size = System::Drawing::Size(46, 22);
 			this->txt_article1->TabIndex = 5;
 			this->txt_article1->TextChanged += gcnew System::EventHandler(this, &Form13::txt_article1_TextChanged);
-			// 
-			// checkBox_quantite
-			// 
-			this->checkBox_quantite->AutoSize = true;
-			this->checkBox_quantite->Location = System::Drawing::Point(7, 223);
-			this->checkBox_quantite->Name = L"checkBox_quantite";
-			this->checkBox_quantite->Size = System::Drawing::Size(127, 21);
-			this->checkBox_quantite->TabIndex = 4;
-			this->checkBox_quantite->Text = L"quantite_article";
-			this->checkBox_quantite->UseVisualStyleBackColor = true;
-			this->checkBox_quantite->CheckedChanged += gcnew System::EventHandler(this, &Form13::checkBox_quantite_CheckedChanged);
 			// 
 			// checkBox_article4
 			// 
 			this->checkBox_article4->AutoSize = true;
 			this->checkBox_article4->Location = System::Drawing::Point(7, 170);
 			this->checkBox_article4->Name = L"checkBox_article4";
-			this->checkBox_article4->Size = System::Drawing::Size(76, 21);
+			this->checkBox_article4->Size = System::Drawing::Size(154, 21);
 			this->checkBox_article4->TabIndex = 3;
 			this->checkBox_article4->Text = L"quantite_resistance";
 			this->checkBox_article4->UseVisualStyleBackColor = true;
@@ -374,7 +351,7 @@ private: System::Windows::Forms::Label^ label_id;
 			this->checkBox_article3->AutoSize = true;
 			this->checkBox_article3->Location = System::Drawing::Point(7, 122);
 			this->checkBox_article3->Name = L"checkBox_article3";
-			this->checkBox_article3->Size = System::Drawing::Size(76, 21);
+			this->checkBox_article3->Size = System::Drawing::Size(171, 21);
 			this->checkBox_article3->TabIndex = 2;
 			this->checkBox_article3->Text = L"quantite_afficheur_led";
 			this->checkBox_article3->UseVisualStyleBackColor = true;
@@ -385,7 +362,7 @@ private: System::Windows::Forms::Label^ label_id;
 			this->checkBox_artcicle2->AutoSize = true;
 			this->checkBox_artcicle2->Location = System::Drawing::Point(7, 82);
 			this->checkBox_artcicle2->Name = L"checkBox_artcicle2";
-			this->checkBox_artcicle2->Size = System::Drawing::Size(76, 21);
+			this->checkBox_artcicle2->Size = System::Drawing::Size(182, 21);
 			this->checkBox_artcicle2->TabIndex = 1;
 			this->checkBox_artcicle2->Text = L"quantite_multi_vibrateur";
 			this->checkBox_artcicle2->UseVisualStyleBackColor = true;
@@ -396,7 +373,7 @@ private: System::Windows::Forms::Label^ label_id;
 			this->checkBox_article1->AutoSize = true;
 			this->checkBox_article1->Location = System::Drawing::Point(7, 35);
 			this->checkBox_article1->Name = L"checkBox_article1";
-			this->checkBox_article1->Size = System::Drawing::Size(76, 21);
+			this->checkBox_article1->Size = System::Drawing::Size(195, 21);
 			this->checkBox_article1->TabIndex = 0;
 			this->checkBox_article1->Text = L"quantite_bouton_poussoir";
 			this->checkBox_article1->UseVisualStyleBackColor = true;
@@ -836,14 +813,6 @@ private: System::Windows::Forms::Label^ label_id;
 			String^ M = "UPDATE tab_commandes SET id_article4 = '" + txt_article4->Text->ToString() + "' WHERE ID='" + txt_identifiant->Text->ToString() + "'";
 			SqlCommand^ cmd13 = gcnew SqlCommand(M, appli);
 			cmd13->ExecuteNonQuery();
-		}
-		if (this->checkBox_quantite->Checked == true)
-		{
-			SqlConnection^ appli = gcnew SqlConnection(ip);
-			appli->Open();
-			String^ N = "UPDATE tab_commandes SET quantite_article = '" + txt_quantite->Text->ToString() + "' WHERE ID='" + txt_identifiant->Text->ToString() + "'";
-			SqlCommand^ cmd14 = gcnew SqlCommand(N, appli);
-			cmd14->ExecuteNonQuery();
 		}
 		if (this->checkBox_nom_client->Checked == true)
 		{

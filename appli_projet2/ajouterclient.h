@@ -1,6 +1,6 @@
 #pragma once
 #include "iostream"
-
+#include "afficherclient.h"
 
 namespace CppCLRWinformsProjekt {
 	
@@ -66,6 +66,7 @@ namespace CppCLRWinformsProjekt {
 		/// Variable nécessaire au concepteur.
 		/// </summary>
 		System::ComponentModel::Container ^components;
+	private: System::Windows::Forms::Button^ button1;
 
 	private: int index;
 
@@ -92,6 +93,7 @@ namespace CppCLRWinformsProjekt {
 			this->txt_facturation = (gcnew System::Windows::Forms::TextBox());
 			this->txt_livraison = (gcnew System::Windows::Forms::TextBox());
 			this->btn_valider = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// btn_exit
@@ -243,11 +245,22 @@ namespace CppCLRWinformsProjekt {
 			this->btn_valider->UseVisualStyleBackColor = true;
 			this->btn_valider->Click += gcnew System::EventHandler(this, &Form3::btn_valider_Click);
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(1156, 9);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(135, 31);
+			this->button1->TabIndex = 27;
+			this->button1->Text = L"Affichage";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form3::button1_Click);
+			// 
 			// Form3
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1444, 635);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->btn_valider);
 			this->Controls->Add(this->txt_livraison);
 			this->Controls->Add(this->txt_facturation);
@@ -321,7 +334,14 @@ private: System::Void btn_valider_Click(System::Object^ sender, System::EventArg
 			SqlCommand^ cmd = gcnew SqlCommand(q, appli);
 			cmd->ExecuteNonQuery();
 			MessageBox::Show("Données inseré dans la BDD");
-			this->Close();
+			
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	this->Hide();
+	Form16^ Form = gcnew Form16();
+	Form->ShowDialog();
+	this->Show();
 }
 };
 }
