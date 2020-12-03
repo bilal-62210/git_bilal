@@ -535,7 +535,7 @@ namespace CppCLRWinformsProjekt {
 			cmd5->ExecuteNonQuery();
 		}
 		MessageBox::Show("Données modifiées");
-		this->Close();
+	
 
 	}
 
