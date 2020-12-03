@@ -70,6 +70,8 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::CheckBox^ checkBox_prenom;
 	private: System::Windows::Forms::CheckBox^ checkBox_nom;
 	private: System::Windows::Forms::CheckBox^ checkBox_id;
+	private: System::Windows::Forms::DataGridView^ personnel_view;
+	private: System::Windows::Forms::Button^ button1;
 
 
 
@@ -119,8 +121,11 @@ namespace CppCLRWinformsProjekt {
 			this->txtnom = (gcnew System::Windows::Forms::TextBox());
 			this->txt_ID = (gcnew System::Windows::Forms::TextBox());
 			this->btn_valider = (gcnew System::Windows::Forms::Button());
+			this->personnel_view = (gcnew System::Windows::Forms::DataGridView());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->groupBox_modif->SuspendLayout();
 			this->groupBox_donnee->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->personnel_view))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// btn_exit
@@ -142,7 +147,7 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox_modif->Controls->Add(this->txt_nom);
 			this->groupBox_modif->Controls->Add(this->label_prenom);
 			this->groupBox_modif->Controls->Add(this->label_nom);
-			this->groupBox_modif->Location = System::Drawing::Point(126, 76);
+			this->groupBox_modif->Location = System::Drawing::Point(126, 206);
 			this->groupBox_modif->Name = L"groupBox_modif";
 			this->groupBox_modif->Size = System::Drawing::Size(805, 86);
 			this->groupBox_modif->TabIndex = 12;
@@ -200,7 +205,7 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox_donnee->Controls->Add(this->textBox5);
 			this->groupBox_donnee->Controls->Add(this->txtnom);
 			this->groupBox_donnee->Controls->Add(this->txt_ID);
-			this->groupBox_donnee->Location = System::Drawing::Point(126, 195);
+			this->groupBox_donnee->Location = System::Drawing::Point(126, 331);
 			this->groupBox_donnee->Name = L"groupBox_donnee";
 			this->groupBox_donnee->Size = System::Drawing::Size(805, 384);
 			this->groupBox_donnee->TabIndex = 13;
@@ -326,7 +331,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->btn_valider->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn_valider->Location = System::Drawing::Point(328, 653);
+			this->btn_valider->Location = System::Drawing::Point(333, 740);
 			this->btn_valider->Name = L"btn_valider";
 			this->btn_valider->Size = System::Drawing::Size(350, 36);
 			this->btn_valider->TabIndex = 36;
@@ -334,11 +339,34 @@ namespace CppCLRWinformsProjekt {
 			this->btn_valider->UseVisualStyleBackColor = true;
 			this->btn_valider->Click += gcnew System::EventHandler(this, &Form11::btn_valider_Click);
 			// 
+			// personnel_view
+			// 
+			this->personnel_view->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->personnel_view->Location = System::Drawing::Point(206, 27);
+			this->personnel_view->Name = L"personnel_view";
+			this->personnel_view->RowHeadersWidth = 51;
+			this->personnel_view->RowTemplate->Height = 24;
+			this->personnel_view->Size = System::Drawing::Size(829, 162);
+			this->personnel_view->TabIndex = 37;
+			this->personnel_view->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form11::personnel_view_CellContentClick);
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(15, 91);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(178, 23);
+			this->button1->TabIndex = 38;
+			this->button1->Text = L"afficher le personnel";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form11::button1_Click);
+			// 
 			// Form11
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1097, 731);
+			this->ClientSize = System::Drawing::Size(1097, 814);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->personnel_view);
 			this->Controls->Add(this->groupBox_donnee);
 			this->Controls->Add(this->groupBox_modif);
 			this->Controls->Add(this->btn_exit);
@@ -346,12 +374,13 @@ namespace CppCLRWinformsProjekt {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;
 			this->Name = L"Form11";
-			this->Text = L"Form11";
+			this->Text = L"Gestion";
 			this->Load += gcnew System::EventHandler(this, &Form11::Form11_Load);
 			this->groupBox_modif->ResumeLayout(false);
 			this->groupBox_modif->PerformLayout();
 			this->groupBox_donnee->ResumeLayout(false);
 			this->groupBox_donnee->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->personnel_view))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -452,6 +481,21 @@ private: System::Void btn_valider_Click(System::Object^ sender, System::EventArg
 		cmd5->ExecuteNonQuery();
 	}
 	MessageBox::Show("Données modifiées");
+
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	SqlConnection^ appli = gcnew SqlConnection(ip);
+	appli->Open();
+
+	String^ z = "select* from tab_personnel ";
+	SqlDataAdapter^ sda5 = gcnew SqlDataAdapter(z, appli);
+	DataTable^ dt5 = gcnew DataTable();
+	sda5->Fill(dt5);
+	personnel_view->DataSource = dt5;
+}
+private: System::Void personnel_view_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) 
+{
 
 }
 };

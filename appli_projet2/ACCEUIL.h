@@ -16,7 +16,8 @@
 #include "afficherperso.h"
 #include "afficherclient.h"
 #include "affichercommande.h"
-
+#include "affichercatalogue.h"
+#include "statistiques.h"
 namespace CppCLRWinformsProjekt {
 
 	using namespace System;
@@ -292,7 +293,7 @@ namespace CppCLRWinformsProjekt {
 			   this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			   this->MaximizeBox = false;
 			   this->Name = L"Form1";
-			   this->Text = L"appli";
+			   this->Text = L"Acceuil";
 			   this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			   this->groupBox1->ResumeLayout(false);
 			   this->groupBox1->PerformLayout();
@@ -434,7 +435,7 @@ namespace CppCLRWinformsProjekt {
 		else if ((this->rdb_afficher->Checked == true)&&(this->rdb_catalogue->Checked == true))
 		{
 			this->Hide();
-			Form2^ Form = gcnew Form2();
+			Form18^ Form = gcnew Form18();
 			Form->ShowDialog();
 			this->Show();
 		}
@@ -443,7 +444,7 @@ namespace CppCLRWinformsProjekt {
 	private: System::Void btn_stat_Click(System::Object^ sender, System::EventArgs^ e)
 	{
 		this->Hide();
-		Form2^ Form = gcnew Form2();
+		Form19^ Form = gcnew Form19();
 		Form->ShowDialog();
 		this->Show();
 	}

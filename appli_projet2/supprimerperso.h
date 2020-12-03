@@ -53,6 +53,8 @@ namespace  CppCLRWinformsProjekt {
 
 
 	private: System::Windows::Forms::Label^ label_nom;
+	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::DataGridView^ personnel_view;
 
 
 	private:
@@ -75,7 +77,10 @@ namespace  CppCLRWinformsProjekt {
 			this->label_prenom = (gcnew System::Windows::Forms::Label());
 			this->label_nom = (gcnew System::Windows::Forms::Label());
 			this->btn_valider = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->personnel_view = (gcnew System::Windows::Forms::DataGridView());
 			this->groupBox_perso->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->personnel_view))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// btn_exit
@@ -97,7 +102,7 @@ namespace  CppCLRWinformsProjekt {
 			this->groupBox_perso->Controls->Add(this->txt_nom);
 			this->groupBox_perso->Controls->Add(this->label_prenom);
 			this->groupBox_perso->Controls->Add(this->label_nom);
-			this->groupBox_perso->Location = System::Drawing::Point(144, 157);
+			this->groupBox_perso->Location = System::Drawing::Point(146, 319);
 			this->groupBox_perso->Name = L"groupBox_perso";
 			this->groupBox_perso->Size = System::Drawing::Size(747, 191);
 			this->groupBox_perso->TabIndex = 12;
@@ -144,7 +149,7 @@ namespace  CppCLRWinformsProjekt {
 			// 
 			this->btn_valider->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn_valider->Location = System::Drawing::Point(342, 487);
+			this->btn_valider->Location = System::Drawing::Point(350, 570);
 			this->btn_valider->Name = L"btn_valider";
 			this->btn_valider->Size = System::Drawing::Size(350, 36);
 			this->btn_valider->TabIndex = 36;
@@ -152,21 +157,45 @@ namespace  CppCLRWinformsProjekt {
 			this->btn_valider->UseVisualStyleBackColor = true;
 			this->btn_valider->Click += gcnew System::EventHandler(this, &Form7::btn_valider_Click);
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(15, 83);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(168, 24);
+			this->button1->TabIndex = 37;
+			this->button1->Text = L"Afficher le personnel";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form7::button1_Click);
+			// 
+			// personnel_view
+			// 
+			this->personnel_view->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->personnel_view->Location = System::Drawing::Point(294, 12);
+			this->personnel_view->Name = L"personnel_view";
+			this->personnel_view->RowHeadersWidth = 51;
+			this->personnel_view->RowTemplate->Height = 24;
+			this->personnel_view->Size = System::Drawing::Size(599, 298);
+			this->personnel_view->TabIndex = 38;
+			this->personnel_view->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form7::personnel_view_CellContentClick);
+			// 
 			// Form7
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1095, 634);
+			this->ClientSize = System::Drawing::Size(1095, 698);
+			this->Controls->Add(this->personnel_view);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->btn_valider);
 			this->Controls->Add(this->groupBox_perso);
 			this->Controls->Add(this->btn_exit);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;
 			this->Name = L"Form7";
-			this->Text = L"Form7";
+			this->Text = L"Gestion";
 			this->Load += gcnew System::EventHandler(this, &Form7::Form7_Load);
 			this->groupBox_perso->ResumeLayout(false);
 			this->groupBox_perso->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->personnel_view))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -200,6 +229,19 @@ private: System::Void btn_valider_Click(System::Object^ sender, System::EventArg
 	SqlCommand^ cmd = gcnew SqlCommand(o, appli);
 	cmd->ExecuteNonQuery();
 	MessageBox::Show("Données supprimé de la BDD");
+}
+private: System::Void personnel_view_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	SqlConnection^ appli = gcnew SqlConnection(ip);
+	appli->Open();
+
+	String^ z = "select* from tab_personnel ";
+	SqlDataAdapter^ sda5 = gcnew SqlDataAdapter(z, appli);
+	DataTable^ dt5 = gcnew DataTable();
+	sda5->Fill(dt5);
+	personnel_view->DataSource = dt5;
 }
 };
 }

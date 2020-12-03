@@ -27,7 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinformsProjekt.cpp" />
-    <ClCompile Include="Form1.cpp" />
+    <ClCompile Include="ACCEUIL.cpp" />
     <ClCompile Include="ajouterperso.cpp" />
     <ClCompile Include="ajouterclient.cpp" />
     <ClCompile Include="ajoutercommande.cpp" />
@@ -36,6 +36,8 @@
     <ClCompile Include="afficherperso.cpp" />
     <ClCompile Include="afficherclient.cpp" />
     <ClCompile Include="affichercommande.cpp" />
+    <ClCompile Include="affichercatalogue.cpp" />
+    <ClCompile Include="statistiques.cpp" />
     <ClCompile Include="modifiercatalogue.cpp" />
     <ClCompile Include="modifiercommande.cpp" />
     <ClCompile Include="modifierclient.cpp" />
@@ -47,8 +49,7 @@
     <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="class.h" />
-    <ClInclude Include="Form1.h">
+    <ClInclude Include="ACCEUIL.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ajouterperso.h">
@@ -73,6 +74,12 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="affichercommande.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="affichercatalogue.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="statistiques.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="modifiercatalogue.h">
@@ -102,8 +109,8 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.h</DependentUpon>
+    <EmbeddedResource Include="ACCEUIL.resx">
+      <DependentUpon>ACCEUIL.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ajouterperso.resx">
       <DependentUpon>ajouterperso.h</DependentUpon>
@@ -125,6 +132,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="affichercommande.resx">
       <DependentUpon>affichercommande.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="affichercatalogue.resx">
+      <DependentUpon>affichercatalogue.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="statistiques.resx">
+      <DependentUpon>statistiques.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modifiercatalogue.resx">
       <DependentUpon>modifiercatalogue.h</DependentUpon>

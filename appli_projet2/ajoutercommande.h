@@ -163,15 +163,15 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox_date = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox_pay = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox_article = (gcnew System::Windows::Forms::GroupBox());
-			this->label_article2 = (gcnew System::Windows::Forms::Label());
-			this->label_article3 = (gcnew System::Windows::Forms::Label());
-			this->label_article4 = (gcnew System::Windows::Forms::Label());
-			this->txt_article2 = (gcnew System::Windows::Forms::TextBox());
-			this->txt_article3 = (gcnew System::Windows::Forms::TextBox());
 			this->txt_article4 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_article3 = (gcnew System::Windows::Forms::TextBox());
+			this->txt_article2 = (gcnew System::Windows::Forms::TextBox());
+			this->label_article4 = (gcnew System::Windows::Forms::Label());
+			this->label_article3 = (gcnew System::Windows::Forms::Label());
+			this->label_article2 = (gcnew System::Windows::Forms::Label());
 			this->groupBox_client = (gcnew System::Windows::Forms::GroupBox());
-			this->label_prenom = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->label_prenom = (gcnew System::Windows::Forms::Label());
 			this->groupBox_ID->SuspendLayout();
 			this->groupBox_date->SuspendLayout();
 			this->groupBox_pay->SuspendLayout();
@@ -275,7 +275,7 @@ namespace CppCLRWinformsProjekt {
 			// label_quantite
 			// 
 			this->label_quantite->AutoSize = true;
-			this->label_quantite->Location = System::Drawing::Point(6, 212);
+			this->label_quantite->Location = System::Drawing::Point(47, 210);
 			this->label_quantite->Name = L"label_quantite";
 			this->label_quantite->Size = System::Drawing::Size(140, 17);
 			this->label_quantite->TabIndex = 20;
@@ -285,11 +285,11 @@ namespace CppCLRWinformsProjekt {
 			// label_article
 			// 
 			this->label_article->AutoSize = true;
-			this->label_article->Location = System::Drawing::Point(57, 39);
+			this->label_article->Location = System::Drawing::Point(14, 39);
 			this->label_article->Name = L"label_article";
-			this->label_article->Size = System::Drawing::Size(89, 17);
+			this->label_article->Size = System::Drawing::Size(173, 17);
 			this->label_article->TabIndex = 21;
-			this->label_article->Text = L"nom_article1";
+			this->label_article->Text = L"quantite_bouton_poussoir";
 			this->label_article->Click += gcnew System::EventHandler(this, &Form4::label_article_Click);
 			// 
 			// label_regl
@@ -394,17 +394,17 @@ namespace CppCLRWinformsProjekt {
 			// 
 			// txt_article
 			// 
-			this->txt_article->Location = System::Drawing::Point(152, 39);
+			this->txt_article->Location = System::Drawing::Point(228, 34);
 			this->txt_article->Name = L"txt_article";
-			this->txt_article->Size = System::Drawing::Size(155, 22);
+			this->txt_article->Size = System::Drawing::Size(121, 22);
 			this->txt_article->TabIndex = 34;
 			this->txt_article->TextChanged += gcnew System::EventHandler(this, &Form4::txt_article_TextChanged);
 			// 
 			// txt_quantite
 			// 
-			this->txt_quantite->Location = System::Drawing::Point(152, 209);
+			this->txt_quantite->Location = System::Drawing::Point(228, 207);
 			this->txt_quantite->Name = L"txt_quantite";
-			this->txt_quantite->Size = System::Drawing::Size(155, 22);
+			this->txt_quantite->Size = System::Drawing::Size(121, 22);
 			this->txt_quantite->TabIndex = 35;
 			this->txt_quantite->TextChanged += gcnew System::EventHandler(this, &Form4::txt_quantite_TextChanged);
 			// 
@@ -512,65 +512,65 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox_article->Controls->Add(this->label_quantite);
 			this->groupBox_article->Location = System::Drawing::Point(675, 72);
 			this->groupBox_article->Name = L"groupBox_article";
-			this->groupBox_article->Size = System::Drawing::Size(337, 261);
+			this->groupBox_article->Size = System::Drawing::Size(416, 261);
 			this->groupBox_article->TabIndex = 43;
 			this->groupBox_article->TabStop = false;
 			this->groupBox_article->Text = L"Article";
 			this->groupBox_article->Enter += gcnew System::EventHandler(this, &Form4::groupBox_article_Enter);
 			// 
-			// label_article2
+			// txt_article4
 			// 
-			this->label_article2->AutoSize = true;
-			this->label_article2->Location = System::Drawing::Point(57, 77);
-			this->label_article2->Name = L"label_article2";
-			this->label_article2->Size = System::Drawing::Size(89, 17);
-			this->label_article2->TabIndex = 35;
-			this->label_article2->Text = L"nom_article2";
-			this->label_article2->Click += gcnew System::EventHandler(this, &Form4::label_article2_Click);
+			this->txt_article4->Location = System::Drawing::Point(228, 160);
+			this->txt_article4->Name = L"txt_article4";
+			this->txt_article4->Size = System::Drawing::Size(121, 22);
+			this->txt_article4->TabIndex = 48;
+			this->txt_article4->TextChanged += gcnew System::EventHandler(this, &Form4::txt_article4_TextChanged);
 			// 
-			// label_article3
+			// txt_article3
 			// 
-			this->label_article3->AutoSize = true;
-			this->label_article3->Location = System::Drawing::Point(57, 121);
-			this->label_article3->Name = L"label_article3";
-			this->label_article3->Size = System::Drawing::Size(89, 17);
-			this->label_article3->TabIndex = 44;
-			this->label_article3->Text = L"nom_article3";
-			this->label_article3->Click += gcnew System::EventHandler(this, &Form4::label_article3_Click);
+			this->txt_article3->Location = System::Drawing::Point(228, 118);
+			this->txt_article3->Name = L"txt_article3";
+			this->txt_article3->Size = System::Drawing::Size(121, 22);
+			this->txt_article3->TabIndex = 47;
+			this->txt_article3->TextChanged += gcnew System::EventHandler(this, &Form4::txt_article3_TextChanged);
+			// 
+			// txt_article2
+			// 
+			this->txt_article2->Location = System::Drawing::Point(228, 72);
+			this->txt_article2->Name = L"txt_article2";
+			this->txt_article2->Size = System::Drawing::Size(121, 22);
+			this->txt_article2->TabIndex = 46;
+			this->txt_article2->TextChanged += gcnew System::EventHandler(this, &Form4::txt_article2_TextChanged);
 			// 
 			// label_article4
 			// 
 			this->label_article4->AutoSize = true;
-			this->label_article4->Location = System::Drawing::Point(57, 160);
+			this->label_article4->Location = System::Drawing::Point(55, 165);
 			this->label_article4->Name = L"label_article4";
-			this->label_article4->Size = System::Drawing::Size(89, 17);
+			this->label_article4->Size = System::Drawing::Size(132, 17);
 			this->label_article4->TabIndex = 45;
-			this->label_article4->Text = L"nom_article4";
+			this->label_article4->Text = L"quantite_resistance";
 			this->label_article4->Click += gcnew System::EventHandler(this, &Form4::label_article4_Click);
 			// 
-			// txt_article2
+			// label_article3
 			// 
-			this->txt_article2->Location = System::Drawing::Point(152, 77);
-			this->txt_article2->Name = L"txt_article2";
-			this->txt_article2->Size = System::Drawing::Size(155, 22);
-			this->txt_article2->TabIndex = 46;
-			this->txt_article2->TextChanged += gcnew System::EventHandler(this, &Form4::txt_article2_TextChanged);
+			this->label_article3->AutoSize = true;
+			this->label_article3->Location = System::Drawing::Point(38, 121);
+			this->label_article3->Name = L"label_article3";
+			this->label_article3->Size = System::Drawing::Size(149, 17);
+			this->label_article3->TabIndex = 44;
+			this->label_article3->Text = L"quantite_afficheur_led";
+			this->label_article3->Click += gcnew System::EventHandler(this, &Form4::label_article3_Click);
 			// 
-			// txt_article3
+			// label_article2
 			// 
-			this->txt_article3->Location = System::Drawing::Point(152, 118);
-			this->txt_article3->Name = L"txt_article3";
-			this->txt_article3->Size = System::Drawing::Size(155, 22);
-			this->txt_article3->TabIndex = 47;
-			this->txt_article3->TextChanged += gcnew System::EventHandler(this, &Form4::txt_article3_TextChanged);
-			// 
-			// txt_article4
-			// 
-			this->txt_article4->Location = System::Drawing::Point(152, 160);
-			this->txt_article4->Name = L"txt_article4";
-			this->txt_article4->Size = System::Drawing::Size(155, 22);
-			this->txt_article4->TabIndex = 48;
-			this->txt_article4->TextChanged += gcnew System::EventHandler(this, &Form4::txt_article4_TextChanged);
+			this->label_article2->AutoSize = true;
+			this->label_article2->Location = System::Drawing::Point(27, 72);
+			this->label_article2->Name = L"label_article2";
+			this->label_article2->Size = System::Drawing::Size(160, 17);
+			this->label_article2->TabIndex = 35;
+			this->label_article2->Text = L"quantite_multi_vibrateur";
+			this->label_article2->Click += gcnew System::EventHandler(this, &Form4::label_article2_Click);
 			// 
 			// groupBox_client
 			// 
@@ -586,6 +586,14 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox_client->Text = L"Client";
 			this->groupBox_client->Enter += gcnew System::EventHandler(this, &Form4::groupBox_client_Enter);
 			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(99, 93);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(138, 22);
+			this->textBox1->TabIndex = 41;
+			this->textBox1->TextChanged += gcnew System::EventHandler(this, &Form4::textBox1_TextChanged);
+			// 
 			// label_prenom
 			// 
 			this->label_prenom->AutoSize = true;
@@ -595,14 +603,6 @@ namespace CppCLRWinformsProjekt {
 			this->label_prenom->TabIndex = 40;
 			this->label_prenom->Text = L"prenom_client";
 			this->label_prenom->Click += gcnew System::EventHandler(this, &Form4::label_prenom_Click);
-			// 
-			// textBox1
-			// 
-			this->textBox1->Location = System::Drawing::Point(99, 93);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(138, 22);
-			this->textBox1->TabIndex = 41;
-			this->textBox1->TextChanged += gcnew System::EventHandler(this, &Form4::textBox1_TextChanged);
 			// 
 			// Form4
 			// 
@@ -707,8 +707,8 @@ private: System::Void btn_valider_Click(System::Object^ sender, System::EventArg
 	SqlConnection^ appli = gcnew SqlConnection(ip);
 	appli->Open();
 	String^ o = "insert into tab_date(ID,date_livraison,date_emission,date_payement)values('" + txt_id->Text->ToString() + "','" + txt_livraison->Text->ToString() + "','" + txt_emission->Text->ToString() + "','" + txt_payement->Text->ToString() + "')";
-	String^ z = "insert into tab_payement(ID,moyen_payement,solde_reglement,montant_ht,montant_tva,montant_ttc)values('" + txt_id->Text->ToString() + "','" + txt_pay->Text->ToString() + "','" + txt_regl->Text->ToString() + "','" + txt_ht->Text->ToString() + "','" + txt_tva->Text->ToString() + "','" + txt_ttc->Text->ToString() + "')";
-	String^ q = "insert into tab_commandes(ID,ref_commande,quantite_article,id_date,id_paiement,id_client,id_article,id_article2,id_article3,id_article4)values('" + txt_id->Text->ToString() + "','" + txt_ref->Text->ToString() + "','" + txt_quantite->Text->ToString() + "','" + txt_id->Text->ToString() + "','" + txt_id->Text->ToString() + "',(select ID from tab_client where tab_client.nom_client='" + txt_client->Text->ToString() + "'),(select ID from tab_article where tab_article.designation ='" + txt_article->Text->ToString() + "'),(select ID from tab_article where tab_article.designation='" + txt_article2->Text->ToString() + "'),(select ID from tab_article where tab_article.designation='" + txt_article3->Text->ToString() + "'),(select ID from tab_article where tab_article.designation='" + txt_article4->Text->ToString() + "'))";
+	String^ z = "insert into tab_payement(ID,moyen_payement,solde_reglement,montant_ht,montant_tva,montant_ttc,id_date)values('" + txt_id->Text->ToString() + "','" + txt_pay->Text->ToString() + "','" + txt_regl->Text->ToString() + "','" + txt_ht->Text->ToString() + "','" + txt_tva->Text->ToString() + "','" + txt_ttc->Text->ToString() + "','" + txt_id->Text->ToString() + "')";
+	String^ q = "insert into tab_commandes(ID,ref_commande,quantite_article,id_date,id_paiement,id_client,quantite_bouton_poussoir,quantite_multi_vibrateur,quantite_afficheur_led,resistance)values('" + txt_id->Text->ToString() + "','" + txt_ref->Text->ToString() + "','" + txt_quantite->Text->ToString() + "','" + txt_id->Text->ToString() + "','" + txt_id->Text->ToString() + "',(select ID from tab_client where tab_client.nom_client='" + txt_client->Text->ToString() + "'),'" + txt_article->Text->ToString() + "','" + txt_article2->Text->ToString() + "','" + txt_article3->Text->ToString() + "','" + txt_article4->Text->ToString() + "')";
 	String^ b = "insert into tab_factures(ID,nom_societe,adresse_sociale,id_commandes,id_client)values('" + txt_id->Text->ToString() + "','THAB','	7_rue_diderot_arras','" + txt_id->Text->ToString() + "',(select ID from tab_client where tab_client.nom_client='" + txt_client->Text->ToString() + "'))";
 		
 

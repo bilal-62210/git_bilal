@@ -1,4 +1,5 @@
 #pragma once
+#include "affichercommande.h"
 
 namespace  CppCLRWinformsProjekt {
 
@@ -56,6 +57,7 @@ namespace  CppCLRWinformsProjekt {
 
 
 	private: System::Windows::Forms::Label^ label_nom;
+	private: System::Windows::Forms::Button^ button1;
 
 
 	private:
@@ -78,6 +80,7 @@ namespace  CppCLRWinformsProjekt {
 			this->label_prenom = (gcnew System::Windows::Forms::Label());
 			this->label_nom = (gcnew System::Windows::Forms::Label());
 			this->btn_valider = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->groupBox_commande->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -155,11 +158,22 @@ namespace  CppCLRWinformsProjekt {
 			this->btn_valider->UseVisualStyleBackColor = true;
 			this->btn_valider->Click += gcnew System::EventHandler(this, &Form9::btn_valider_Click);
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(168, 15);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(207, 32);
+			this->button1->TabIndex = 37;
+			this->button1->Text = L"afficher les commandes";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form9::button1_Click);
+			// 
 			// Form9
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1095, 634);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->btn_valider);
 			this->Controls->Add(this->groupBox_commande);
 			this->Controls->Add(this->btn_exit);
@@ -214,5 +228,13 @@ namespace  CppCLRWinformsProjekt {
 		cmd3->ExecuteNonQuery();
 		MessageBox::Show("Données supprimé de la BDD");
 	}
-	};
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
+	{
+
+		this->Hide();
+		Form17^ Form = gcnew Form17();
+		Form->ShowDialog();
+		this->Show();
+	}
+};
 }

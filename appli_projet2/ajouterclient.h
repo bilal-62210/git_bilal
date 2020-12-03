@@ -321,6 +321,7 @@ private: System::Void btn_valider_Click(System::Object^ sender, System::EventArg
 			SqlCommand^ cmd = gcnew SqlCommand(q, appli);
 			cmd->ExecuteNonQuery();
 			MessageBox::Show("Données inseré dans la BDD");
+			this->Close();
 }
 };
 }

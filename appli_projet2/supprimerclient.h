@@ -53,6 +53,8 @@ namespace  CppCLRWinformsProjekt {
 
 
 	private: System::Windows::Forms::Label^ label_nom;
+	private: System::Windows::Forms::DataGridView^ client_view;
+	private: System::Windows::Forms::Button^ button1;
 
 
 	private:
@@ -75,7 +77,10 @@ namespace  CppCLRWinformsProjekt {
 			this->label_prenom = (gcnew System::Windows::Forms::Label());
 			this->label_nom = (gcnew System::Windows::Forms::Label());
 			this->btn_valider = (gcnew System::Windows::Forms::Button());
+			this->client_view = (gcnew System::Windows::Forms::DataGridView());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->groupBox_client->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->client_view))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// btn_exit
@@ -97,7 +102,7 @@ namespace  CppCLRWinformsProjekt {
 			this->groupBox_client->Controls->Add(this->txt_nom);
 			this->groupBox_client->Controls->Add(this->label_prenom);
 			this->groupBox_client->Controls->Add(this->label_nom);
-			this->groupBox_client->Location = System::Drawing::Point(144, 157);
+			this->groupBox_client->Location = System::Drawing::Point(151, 279);
 			this->groupBox_client->Name = L"groupBox_client";
 			this->groupBox_client->Size = System::Drawing::Size(747, 191);
 			this->groupBox_client->TabIndex = 12;
@@ -144,7 +149,7 @@ namespace  CppCLRWinformsProjekt {
 			// 
 			this->btn_valider->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn_valider->Location = System::Drawing::Point(342, 487);
+			this->btn_valider->Location = System::Drawing::Point(333, 521);
 			this->btn_valider->Name = L"btn_valider";
 			this->btn_valider->Size = System::Drawing::Size(350, 36);
 			this->btn_valider->TabIndex = 36;
@@ -152,21 +157,45 @@ namespace  CppCLRWinformsProjekt {
 			this->btn_valider->UseVisualStyleBackColor = true;
 			this->btn_valider->Click += gcnew System::EventHandler(this, &Form8::btn_valider_Click);
 			// 
-			// Form7
+			// client_view
+			// 
+			this->client_view->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->client_view->Location = System::Drawing::Point(190, 27);
+			this->client_view->Name = L"client_view";
+			this->client_view->RowHeadersWidth = 51;
+			this->client_view->RowTemplate->Height = 24;
+			this->client_view->Size = System::Drawing::Size(708, 232);
+			this->client_view->TabIndex = 37;
+			this->client_view->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form8::client_view_CellContentClick);
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(15, 98);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(156, 28);
+			this->button1->TabIndex = 38;
+			this->button1->Text = L"Afficher les clients";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form8::button1_Click);
+			// 
+			// Form8
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1095, 634);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->client_view);
 			this->Controls->Add(this->btn_valider);
 			this->Controls->Add(this->groupBox_client);
 			this->Controls->Add(this->btn_exit);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;
-			this->Name = L"Form7";
-			this->Text = L"Form7";
+			this->Name = L"Form8";
+			this->Text = L"Gestion";
 			this->Load += gcnew System::EventHandler(this, &Form8::Form7_Load);
 			this->groupBox_client->ResumeLayout(false);
 			this->groupBox_client->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->client_view))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -200,8 +229,21 @@ namespace  CppCLRWinformsProjekt {
 		SqlCommand^ cmd = gcnew SqlCommand(o, appli);
 		cmd->ExecuteNonQuery();
 		MessageBox::Show("Données supprimé de la BDD");
-		this->Close();
+	
 
 	}
-	};
+	private: System::Void client_view_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	SqlConnection^ appli = gcnew SqlConnection(ip);
+	appli->Open();
+
+	String^ z = "select* from tab_client ";
+	SqlDataAdapter^ sda5 = gcnew SqlDataAdapter(z, appli);
+	DataTable^ dt5 = gcnew DataTable();
+	sda5->Fill(dt5);
+	client_view->DataSource = dt5;
+}
+};
 }

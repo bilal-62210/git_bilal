@@ -273,7 +273,7 @@ namespace CppCLRWinformsProjekt {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;
 			this->Name = L"Form6";
-			this->Text = L"Form6";
+			this->Text = L"Gestion";
 			this->Load += gcnew System::EventHandler(this, &Form6::Form6_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

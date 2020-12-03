@@ -74,6 +74,9 @@ namespace CppCLRWinformsProjekt {
 	private: System::Windows::Forms::CheckBox^ checkBox_prenom;
 	private: System::Windows::Forms::CheckBox^ checkBox_nom;
 	private: System::Windows::Forms::CheckBox^ checkBox_id;
+	private: System::Windows::Forms::DataGridView^ client_view;
+	private: System::Windows::Forms::CheckBox^ checkBox_client;
+	private: System::Windows::Forms::Button^ btn_afficher;
 
 
 
@@ -125,8 +128,12 @@ namespace CppCLRWinformsProjekt {
 			this->txtnom = (gcnew System::Windows::Forms::TextBox());
 			this->txt_ID = (gcnew System::Windows::Forms::TextBox());
 			this->btn_valider = (gcnew System::Windows::Forms::Button());
+			this->client_view = (gcnew System::Windows::Forms::DataGridView());
+			this->checkBox_client = (gcnew System::Windows::Forms::CheckBox());
+			this->btn_afficher = (gcnew System::Windows::Forms::Button());
 			this->groupBox_modif->SuspendLayout();
 			this->groupBox_donnee->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->client_view))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// btn_exit
@@ -148,7 +155,7 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox_modif->Controls->Add(this->txt_nom);
 			this->groupBox_modif->Controls->Add(this->label_prenom);
 			this->groupBox_modif->Controls->Add(this->label_nom);
-			this->groupBox_modif->Location = System::Drawing::Point(126, 76);
+			this->groupBox_modif->Location = System::Drawing::Point(126, 201);
 			this->groupBox_modif->Name = L"groupBox_modif";
 			this->groupBox_modif->Size = System::Drawing::Size(805, 86);
 			this->groupBox_modif->TabIndex = 12;
@@ -215,7 +222,7 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox_donnee->Controls->Add(this->txt_prenom1);
 			this->groupBox_donnee->Controls->Add(this->txtnom);
 			this->groupBox_donnee->Controls->Add(this->txt_ID);
-			this->groupBox_donnee->Location = System::Drawing::Point(126, 195);
+			this->groupBox_donnee->Location = System::Drawing::Point(126, 313);
 			this->groupBox_donnee->Name = L"groupBox_donnee";
 			this->groupBox_donnee->Size = System::Drawing::Size(805, 384);
 			this->groupBox_donnee->TabIndex = 13;
@@ -352,7 +359,7 @@ namespace CppCLRWinformsProjekt {
 			// 
 			this->btn_valider->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn_valider->Location = System::Drawing::Point(328, 653);
+			this->btn_valider->Location = System::Drawing::Point(328, 722);
 			this->btn_valider->Name = L"btn_valider";
 			this->btn_valider->Size = System::Drawing::Size(350, 36);
 			this->btn_valider->TabIndex = 36;
@@ -360,11 +367,46 @@ namespace CppCLRWinformsProjekt {
 			this->btn_valider->UseVisualStyleBackColor = true;
 			this->btn_valider->Click += gcnew System::EventHandler(this, &Form12::btn_valider_Click);
 			// 
+			// client_view
+			// 
+			this->client_view->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->client_view->Location = System::Drawing::Point(346, 12);
+			this->client_view->Name = L"client_view";
+			this->client_view->RowHeadersWidth = 51;
+			this->client_view->RowTemplate->Height = 24;
+			this->client_view->Size = System::Drawing::Size(725, 183);
+			this->client_view->TabIndex = 37;
+			this->client_view->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form12::client_view_CellContentClick);
+			// 
+			// checkBox_client
+			// 
+			this->checkBox_client->AutoSize = true;
+			this->checkBox_client->Location = System::Drawing::Point(39, 85);
+			this->checkBox_client->Name = L"checkBox_client";
+			this->checkBox_client->Size = System::Drawing::Size(143, 21);
+			this->checkBox_client->TabIndex = 38;
+			this->checkBox_client->Text = L"afficher les clients";
+			this->checkBox_client->UseVisualStyleBackColor = true;
+			this->checkBox_client->CheckedChanged += gcnew System::EventHandler(this, &Form12::checkBox_client_CheckedChanged);
+			// 
+			// btn_afficher
+			// 
+			this->btn_afficher->Location = System::Drawing::Point(206, 83);
+			this->btn_afficher->Name = L"btn_afficher";
+			this->btn_afficher->Size = System::Drawing::Size(75, 23);
+			this->btn_afficher->TabIndex = 39;
+			this->btn_afficher->Text = L"afficher";
+			this->btn_afficher->UseVisualStyleBackColor = true;
+			this->btn_afficher->Click += gcnew System::EventHandler(this, &Form12::btn_afficher_Click);
+			// 
 			// Form12
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1097, 731);
+			this->ClientSize = System::Drawing::Size(1097, 805);
+			this->Controls->Add(this->btn_afficher);
+			this->Controls->Add(this->checkBox_client);
+			this->Controls->Add(this->client_view);
 			this->Controls->Add(this->groupBox_donnee);
 			this->Controls->Add(this->groupBox_modif);
 			this->Controls->Add(this->btn_exit);
@@ -378,7 +420,9 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox_modif->PerformLayout();
 			this->groupBox_donnee->ResumeLayout(false);
 			this->groupBox_donnee->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->client_view))->EndInit();
 			this->ResumeLayout(false);
+			this->PerformLayout();
 
 		}
 
@@ -494,5 +538,26 @@ namespace CppCLRWinformsProjekt {
 		this->Close();
 
 	}
-	};
+
+	private: System::Void checkBox_client_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
+	}
+private: System::Void btn_afficher_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	if (this->checkBox_client->Checked == true)
+	{
+		SqlConnection^ appli = gcnew SqlConnection(ip);
+		appli->Open();
+
+		String^ z = "select* from tab_client ";
+		SqlDataAdapter^ sda5 = gcnew SqlDataAdapter(z, appli);
+		DataTable^ dt5 = gcnew DataTable();
+		sda5->Fill(dt5);
+		client_view->DataSource = dt5;
+	}
+}
+private: System::Void client_view_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) 
+{
+
+}
+};
 }

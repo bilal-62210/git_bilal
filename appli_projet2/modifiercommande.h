@@ -1,6 +1,7 @@
 #pragma once
 
 #include "facture.h"
+#include "affichercommande.h"
 
 namespace CppCLRWinformsProjekt {
 
@@ -101,6 +102,7 @@ private: System::Windows::Forms::TextBox^ txt_reference;
 private: System::Windows::Forms::TextBox^ txt_identifiant;
 private: System::Windows::Forms::Label^ label_ref;
 private: System::Windows::Forms::Label^ label_id;
+	private: System::Windows::Forms::Button^ button1;
 
 
 
@@ -166,6 +168,7 @@ private: System::Windows::Forms::Label^ label_id;
 			this->checkBox_id = (gcnew System::Windows::Forms::CheckBox());
 			this->btn_facture = (gcnew System::Windows::Forms::Button());
 			this->btn_valider = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->groupBox_modif->SuspendLayout();
 			this->groupBox_donnee->SuspendLayout();
 			this->groupBox_client->SuspendLayout();
@@ -199,7 +202,7 @@ private: System::Windows::Forms::Label^ label_id;
 			this->groupBox_modif->Size = System::Drawing::Size(1073, 86);
 			this->groupBox_modif->TabIndex = 12;
 			this->groupBox_modif->TabStop = false;
-			this->groupBox_modif->Text = L"Client à modifier :";
+			this->groupBox_modif->Text = L"commande à modifier :";
 			this->groupBox_modif->Enter += gcnew System::EventHandler(this, &Form13::groupBox_modif_Enter);
 			// 
 			// txt_reference
@@ -362,7 +365,7 @@ private: System::Windows::Forms::Label^ label_id;
 			this->checkBox_article4->Name = L"checkBox_article4";
 			this->checkBox_article4->Size = System::Drawing::Size(76, 21);
 			this->checkBox_article4->TabIndex = 3;
-			this->checkBox_article4->Text = L"article4";
+			this->checkBox_article4->Text = L"quantite_resistance";
 			this->checkBox_article4->UseVisualStyleBackColor = true;
 			this->checkBox_article4->CheckedChanged += gcnew System::EventHandler(this, &Form13::checkBox_article4_CheckedChanged);
 			// 
@@ -373,7 +376,7 @@ private: System::Windows::Forms::Label^ label_id;
 			this->checkBox_article3->Name = L"checkBox_article3";
 			this->checkBox_article3->Size = System::Drawing::Size(76, 21);
 			this->checkBox_article3->TabIndex = 2;
-			this->checkBox_article3->Text = L"article3";
+			this->checkBox_article3->Text = L"quantite_afficheur_led";
 			this->checkBox_article3->UseVisualStyleBackColor = true;
 			this->checkBox_article3->CheckedChanged += gcnew System::EventHandler(this, &Form13::checkBox_article3_CheckedChanged);
 			// 
@@ -384,7 +387,7 @@ private: System::Windows::Forms::Label^ label_id;
 			this->checkBox_artcicle2->Name = L"checkBox_artcicle2";
 			this->checkBox_artcicle2->Size = System::Drawing::Size(76, 21);
 			this->checkBox_artcicle2->TabIndex = 1;
-			this->checkBox_artcicle2->Text = L"article2";
+			this->checkBox_artcicle2->Text = L"quantite_multi_vibrateur";
 			this->checkBox_artcicle2->UseVisualStyleBackColor = true;
 			this->checkBox_artcicle2->CheckedChanged += gcnew System::EventHandler(this, &Form13::checkBox_artcicle2_CheckedChanged);
 			// 
@@ -395,7 +398,7 @@ private: System::Windows::Forms::Label^ label_id;
 			this->checkBox_article1->Name = L"checkBox_article1";
 			this->checkBox_article1->Size = System::Drawing::Size(76, 21);
 			this->checkBox_article1->TabIndex = 0;
-			this->checkBox_article1->Text = L"article1";
+			this->checkBox_article1->Text = L"quantite_bouton_poussoir";
 			this->checkBox_article1->UseVisualStyleBackColor = true;
 			this->checkBox_article1->CheckedChanged += gcnew System::EventHandler(this, &Form13::checkBox_article1_CheckedChanged);
 			// 
@@ -661,11 +664,22 @@ private: System::Windows::Forms::Label^ label_id;
 			this->btn_valider->UseVisualStyleBackColor = true;
 			this->btn_valider->Click += gcnew System::EventHandler(this, &Form13::btn_valider_Click);
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(167, 15);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(215, 25);
+			this->button1->TabIndex = 39;
+			this->button1->Text = L"afficher les commandes";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form13::button1_Click);
+			// 
 			// Form13
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1120, 731);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->groupBox_donnee);
 			this->Controls->Add(this->groupBox_modif);
 			this->Controls->Add(this->btn_exit);
@@ -795,7 +809,7 @@ private: System::Windows::Forms::Label^ label_id;
 		{
 			SqlConnection^ appli = gcnew SqlConnection(ip);
 			appli->Open();
-			String^ j = "UPDATE tab_commandes SET id_article = tab_article.ID from tab_article  WHERE tab_commandes.ID='" + txt_identifiant->Text->ToString() + "' AND tab_article.designation  ='" + txt_article1->Text->ToString() + "'";
+			String^ j = "UPDATE tab_commandes SET id_article = '" + txt_article1->Text->ToString() + "' WHERE ID='" + txt_identifiant->Text->ToString() + "'";
 			SqlCommand^ cmd10 = gcnew SqlCommand(j, appli);
 			cmd10->ExecuteNonQuery();
 		}
@@ -803,7 +817,7 @@ private: System::Windows::Forms::Label^ label_id;
 		{
 			SqlConnection^ appli = gcnew SqlConnection(ip);
 			appli->Open();
-			String^ k = "UPDATE tab_commandes SET id_article1 = tab_article.ID from tab_article WHERE tab_commandes.ID='" + txt_identifiant->Text->ToString() + "' AND tab_article.designation  ='" + txt_article2->Text->ToString() + "'";
+			String^ k = "UPDATE tab_commandes SET id_article2 ='" + txt_article2->Text->ToString() + "' WHERE ID='" + txt_identifiant->Text->ToString() + "'";
 			SqlCommand^ cmd11 = gcnew SqlCommand(k, appli);
 			cmd11->ExecuteNonQuery();
 		}
@@ -811,7 +825,7 @@ private: System::Windows::Forms::Label^ label_id;
 		{
 			SqlConnection^ appli = gcnew SqlConnection(ip);
 			appli->Open();
-			String^ L = "UPDATE tab_commandes SET id_article2 = tab_article.ID from tab_article WHERE tab_commandes.ID='" + txt_identifiant->Text->ToString() + "' AND tab_article.designation ='" + txt_article3->Text->ToString() + "'";
+			String^ L = "UPDATE tab_commandes SET id_article3 = '" + txt_article3->Text->ToString() + "' WHERE ID='" + txt_identifiant->Text->ToString() + "'";
 			SqlCommand^ cmd12 = gcnew SqlCommand(L, appli);
 			cmd12->ExecuteNonQuery();
 		}
@@ -819,7 +833,7 @@ private: System::Windows::Forms::Label^ label_id;
 		{
 			SqlConnection^ appli = gcnew SqlConnection(ip);
 			appli->Open();
-			String^ M = "UPDATE tab_commandes SET id_article3 = tab_article.ID from tab_article WHERE tab_commandes.ID='" + txt_identifiant->Text->ToString() + "' AND tab_article.designation ='" + txt_article4->Text->ToString() + "'";
+			String^ M = "UPDATE tab_commandes SET id_article4 = '" + txt_article4->Text->ToString() + "' WHERE ID='" + txt_identifiant->Text->ToString() + "'";
 			SqlCommand^ cmd13 = gcnew SqlCommand(M, appli);
 			cmd13->ExecuteNonQuery();
 		}
@@ -900,6 +914,13 @@ private: System::Void txt_identifiant_TextChanged(System::Object^ sender, System
 private: System::Void label_ref_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void txt_reference_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) 
+{
+	this->Hide();
+	Form17^ Form = gcnew Form17();
+	Form->ShowDialog();
+	this->Show();
 }
 };
 }

@@ -199,7 +199,7 @@ namespace CppCLRWinformsProjekt {
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->MaximizeBox = false;
 			this->Name = L"Form15";
-			this->Text = L"Form15";
+			this->Text = L"Gestion";
 			this->Load += gcnew System::EventHandler(this, &Form16::Form16_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->client_view))->EndInit();
 			this->groupBox_identite->ResumeLayout(false);

@@ -306,7 +306,7 @@ namespace CppCLRWinformsProjekt {
 			this->groupBox_article->Size = System::Drawing::Size(427, 253);
 			this->groupBox_article->TabIndex = 46;
 			this->groupBox_article->TabStop = false;
-			this->groupBox_article->Text = L"Articles_commandés";
+			this->groupBox_article->Text = L"catalogue";
 			this->groupBox_article->Enter += gcnew System::EventHandler(this, &Form17::groupBox_article_Enter);
 			// 
 			// groupBox_dates
